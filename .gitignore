@@ -1,0 +1,33 @@
+# Maven Build Output
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Compiled Java & Log Error JVM
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+replay_pid*
+
+# Visual Studio Code & Java Workspace
+.vscode/
+.classpath
+.project
+.settings/
+.factorypath
+
+# IntelliJ IDEA (jika suatu saat dibuka di IntelliJ)
+.idea/
+*.iml
+out/
+
+# File Sistem Operasi (Windows & macOS)
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

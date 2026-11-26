@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.libratrack.DashboardController"
+            prefWidth="1100" prefHeight="700"
+            stylesheets="@style.css"
+            styleClass="root">
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox prefWidth="240" spacing="25" styleClass="sidebar">
+            <padding>
+                <Insets top="30" right="20" bottom="25" left="20"/>
+            </padding>
+
+            <VBox spacing="5">
+                <Label text="LibraTrack" styleClass="brand"/>
+                <Label text="LIBRARY MANAGEMENT" styleClass="brand-subtitle"/>
+            </VBox>
+
+            <VBox spacing="12">
+                <Label text="MAIN MENU" styleClass="menu-heading"/>
+
+                <Label text="▣   Dashboard"
+                       maxWidth="Infinity"
+                       onMouseClicked="#keDashboard"
+                       styleClass="menu-item-active"/>
+
+                <Label text="▤   Data Buku"
+                       maxWidth="Infinity"
+                       onMouseClicked="#keDataBuku"
+                       styleClass="menu-item"/>
+
+                <Label text="♙   Data Anggota"
+                       maxWidth="Infinity"
+                       onMouseClicked="#keDataAnggota"
+                       styleClass="menu-item"/>
+
+                <Label text="⇄   Peminjaman &amp; Pengembalian"
+                       maxWidth="Infinity"
+                       onMouseClicked="#kePeminjaman"
+                       styleClass="menu-item"/>
+
+                <Label text="◷   Riwayat"
+                       maxWidth="Infinity"
+                       onMouseClicked="#keRiwayat"
+                       styleClass="menu-item"/>
+            </VBox>
+
+            <VBox VBox.vgrow="ALWAYS"/>
+
+            <Label text="LibraTrack v1.0" styleClass="sidebar-footer"/>
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <VBox spacing="20" styleClass="content">
+            <padding>
+                <Insets top="30" right="35" bottom="30" left="35"/>
+            </padding>
+
+            <VBox spacing="5">
+                <Label text="Dashboard" styleClass="page-title"/>
+                <Label text="Selamat datang di LibraTrack!" styleClass="page-subtitle"/>
+            </VBox>
+
+            <!-- STATISTIC CARDS -->
+            <HBox spacing="18">
+                <VBox HBox.hgrow="ALWAYS" styleClass="stat-card">
+                    <Label text="TOTAL BUKU" styleClass="stat-heading"/>
+                    <Label fx:id="lblTotalBuku" text="0" styleClass="stat-number"/>
+                    <Label text="Judul buku terdaftar" styleClass="stat-description"/>
+                </VBox>
+
+                <VBox HBox.hgrow="ALWAYS" styleClass="stat-card">
+                    <Label text="TOTAL ANGGOTA" styleClass="stat-heading"/>
+                    <Label fx:id="lblTotalAnggota" text="0" styleClass="stat-number"/>
+                    <Label text="Anggota terdaftar" styleClass="stat-description"/>
+                </VBox>
+
+                <VBox HBox.hgrow="ALWAYS" styleClass="stat-card">
+                    <Label text="PEMINJAMAN AKTIF" styleClass="stat-heading"/>
+                    <Label fx:id="lblPeminjamanAktif" text="0" styleClass="stat-number"/>
+                    <Label text="Belum dikembalikan" styleClass="stat-description"/>
+                </VBox>
+
+                <VBox HBox.hgrow="ALWAYS" styleClass="stat-card">
+                    <Label text="TOTAL DENDA" styleClass="stat-heading"/>
+                    <Label fx:id="lblTotalDenda" text="Rp0" styleClass="stat-number"/>
+                    <Label text="Denda tercatat" styleClass="stat-description"/>
+                </VBox>
+            </HBox>
+
+            <!-- WELCOME PANEL -->
+            <VBox spacing="10" styleClass="welcome-card">
+                <Label text="LibraTrack Overview" styleClass="section-title"/>
+                <Label text="Kelola koleksi buku, data anggota, peminjaman, dan pengembalian buku dalam satu aplikasi."
+                       wrapText="true"
+                       styleClass="welcome-description"/>
+            </VBox>
+
+            <!-- BOTTOM PANEL: TABEL PEMINJAMAN AKTIF & KETENTUAN SISTEM -->
+            <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+                <!-- KOLOM KIRI: PEMINJAMAN AKTIF TERBARU -->
+                <VBox styleClass="table-container" spacing="12" HBox.hgrow="ALWAYS" prefWidth="520">
+                    <Label text="Peminjaman Aktif Terbaru" styleClass="section-title"/>
+
+                    <TableView fx:id="tablePeminjamanDashboard" VBox.vgrow="ALWAYS">
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn text="Peminjam" prefWidth="150"/>
+                            <TableColumn text="Judul Buku" prefWidth="170"/>
+                            <TableColumn text="Tgl Pinjam" prefWidth="100"/>
+                            <TableColumn text="Batas" prefWidth="80"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+
+                <!-- KOLOM KANAN: KETENTUAN & INFORMASI -->
+                <VBox styleClass="table-container" spacing="14" prefWidth="280" minWidth="260">
+                    <Label text="Ketentuan &amp; Informasi" styleClass="section-title"/>
+
+                    <VBox spacing="4">
+                        <Label text="Kategori Mahasiswa" style="-fx-font-weight: bold; -fx-text-fill: #1F1D18;"/>
+                        <Label text="Maksimal pinjam 7 hari • Denda Rp2.000/hari" wrapText="true" styleClass="stat-description"/>
+                    </VBox>
+
+                    <VBox spacing="4">
+                        <Label text="Kategori Dosen" style="-fx-font-weight: bold; -fx-text-fill: #1F1D18;"/>
+                        <Label text="Maksimal pinjam 14 hari • Denda Rp1.000/hari" wrapText="true" styleClass="stat-description"/>
+                    </VBox>
+
+                    <VBox spacing="4">
+                        <Label text="Total Stok Buku Tersedia" style="-fx-font-weight: bold; -fx-text-fill: #1F1D18;"/>
+                        <Label fx:id="lblTotalEksemplar" text="0 eksemplar siap dipinjam" styleClass="stat-description"/>
+                    </VBox>
+
+                    <VBox VBox.vgrow="ALWAYS"/>
+
+                    <Label text="LibraTrack • Sistem Manajemen Peminjaman Buku dan Denda Perpustakaan"
+                           wrapText="true"
+                           styleClass="system-description"/>
+                </VBox>
+
+            </HBox>
+        </VBox>
+    </center>
+
+</BorderPane>
