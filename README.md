@@ -1,4 +1,4 @@
-# LibraTrack — Aplikasi Manajemen Peminjaman Buku dan Denda Perpustakaan
+# LibraTrack - Aplikasi Manajemen Peminjaman Buku dan Denda Perpustakaan
 
 **LibraTrack** adalah aplikasi desktop berbasis **JavaFX** untuk mengelola sirkulasi perpustakaan secara terintegrasi, mulai dari pendataan koleksi buku, manajemen anggota (Mahasiswa & Dosen), transaksi peminjaman dan pengembalian berbasis pemilihan tanggal kalender, kalkulasi denda keterlambatan otomatis, hingga pencatatan riwayat transaksi menggunakan struktur data **Stack (LIFO)**.
 
@@ -10,7 +10,7 @@ Proyek ini disusun untuk memenuhi **Tugas Akhir Praktikum Pemrograman Dasar 2026
 
 * **Nama:** Zaky Maftuh Ahmadi Widianto
 * **NIM:** 21120126130050
-* **Program Studi:** Teknik Komputer — Universitas Diponegoro
+* **Program Studi:** Teknik Komputer - Universitas Diponegoro
 * **Mata Kuliah:** Praktikum Pemrograman Dasar (2026)
 
 ---
